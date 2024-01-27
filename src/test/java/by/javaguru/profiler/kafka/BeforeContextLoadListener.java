@@ -9,6 +9,6 @@ public class BeforeContextLoadListener implements TestExecutionListener {
     public void beforeTestClass(TestContext testContext) throws Exception {
 
         TestExecutionListener.super.beforeTestClass(testContext);
-        System.setProperty("spring.kafka.bootstrap-servers", "localhost:9093");
+        System.setProperty("spring.kafka.bootstrap-servers", "localhost:9097");
     }
 }

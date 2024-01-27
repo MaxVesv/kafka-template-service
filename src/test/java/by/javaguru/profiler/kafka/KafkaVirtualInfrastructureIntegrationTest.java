@@ -5,7 +5,6 @@ import by.javaguru.profiler.kafka.consumer.SimpleVirtualKafkaConsumer;
 import by.javaguru.profiler.kafka.producer.SimpleVirtualKafkaProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,8 +19,8 @@ import java.util.concurrent.TimeUnit;
 @EmbeddedKafka(
         partitions = 1,
         topics = {"virtual-kafka-topic1", "inner-test-topic"},
-        brokerProperties = { "listeners=PLAINTEXT://localhost:9093"},
-        ports = 9093,
+        brokerProperties = { "listeners=PLAINTEXT://localhost:9097"},
+        ports = 9097,
         count = 1
 )
 @Slf4j
@@ -63,7 +62,7 @@ public class KafkaVirtualInfrastructureIntegrationTest {
         log.info("!!!!!!!Virtual kafka: messageConsumed: " + messageConsumed);
         Assertions.assertTrue(messageConsumed);
 
-        log.info("!!!!!!!Virtual kafka: !!!! ПОЛУЧАЕМ ДАННЫЕ из consumer.getPayloadMap(): " + consumer.getPayloadMap().toString());
+        log.info("!!!!!!!Virtual kafka: !!!! data from consumer.getPayloadMap(): " + consumer.getPayloadMap().toString());
         Assertions.assertTrue(consumer.getPayloadMap().containsKey(keyMessage));
         Assertions.assertEquals(testString, consumer.getPayloadMap().get(keyMessage));
 
