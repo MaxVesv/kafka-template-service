@@ -1,0 +1,64 @@
+spring:
+#  servlet:
+#    multipart:
+#      file-size-threshold: 2048
+#      max-file-size: 5MB
+#  datasource:
+#    url: ${DATABASE_URL}
+#    username: ${DATABASE_USERNAME}
+#    password: ${DATABASE_PASSWORD}
+#  liquibase:
+#    change-log: db.changelog/changelog.xml
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    open-in-view: true
+#    properties:
+#      jakarta:
+#        persistence:
+#          sharedCache:
+#            mode: UNSPECIFIED
+#
+#  jackson:
+#    deserialization:
+#      fail-on-unknown-properties: true
+#  main:
+#    banner-mode: "off"
+
+
+# parametr for one consumer and producer (example: for education)
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      auto-offset-reset: earliest
+      group-id: example-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      acks: 1
+      retries: 3
+      batch-size: 16384
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+custom_test:
+  topic_for_inner_test: inner-test-topic
+  topic_for_virtual_kafka_test: virtual-kafka-topic1
+
+
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, info
+#logging:
+#  level:
+#    root: info
+#    by.javaguru.profiler: debug
+
+
+
+
