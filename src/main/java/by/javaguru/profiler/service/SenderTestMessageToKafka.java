@@ -14,12 +14,12 @@ public class SenderTestMessageToKafka {
     private String topic;
     private final Integer partition = 0;
     private final String keyMessage = "key-test";
-    private final Integer maxCount = 2;
+    private final Integer maxCount = 50;
     private Integer counter = 0;
 
     private final SimpleKafkaProducer producer;
 
-    @Scheduled(fixedDelay = 3000)
+    @Scheduled(fixedDelay = 2000)
     public void sendMessage() {
         if (counter <= maxCount) {
             System.out.println("ОТПРАВЛЯЕМ В KAFKA!!!!");
