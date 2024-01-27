@@ -14,7 +14,7 @@ public class SenderTestMessageToKafka {
     private String topic;
     private final Integer partition = 0;
     private final String keyMessage = "key-test";
-    private final Integer maxCount = 50;
+    private final Integer maxCount = 100;
     private Integer counter = 0;
 
     private final SimpleKafkaProducer producer;
